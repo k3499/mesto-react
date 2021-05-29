@@ -1,7 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import Card from '../components/Card';
+import api from '../utils/api';
 
-function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick, cards, currentUser}) {
+function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick}) {
+
+  const [cards, setCards] = React.useState([])
+  const [currentUser, setCurrentUser] = React.useState({})
+
+  React.useEffect(() => {
+    Promise.all([api.getUserInfo(), api.getInitialCards()])
+    .then(([ userData, cards  ]) => { 
+      setCurrentUser(userData); 
+      setCards(cards)
+    })
+    .catch((err) => console.log(err))
+  }, [])
 
   return (
     <main className="content">
@@ -25,16 +38,6 @@ function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick, cards, curr
         <Card key={card._id} card={card} onCardClick={onCardClick}/>
       ))}
     </section>
-
-    <div className="popup confirm-popup">
-      <div className="popup__container">
-        <h2 className="popup__edit-title">Вы уверены?</h2>
-        <form className="popup__form" id="confirm-form" name="confirm-form"  method="GET" action="#" noValidate>
-          <button className="popup__button" type="submit">Да</button>
-        </form>
-        <button className="popup__close" id="close-confirm-button" type="button"></button>
-      </div>
-    </div>
     
   </main>
   );

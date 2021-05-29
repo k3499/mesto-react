@@ -8,7 +8,7 @@ function Card({ card, onCardClick }) {
   return (
         <article className="element">
         <button className="element__delete" type="button"></button>
-        <div className="element__image" onClick={handleClick} style={{ backgroundImage: `url(${card.link})` }} alt={card.name}></div>
+        <div className="element__image" onClick={handleClick} style={{ backgroundImage: `url(${card.link})` }} ></div>
         <div className="element__info">
             <h2 className="element__title">{card.name}</h2>
             <div>

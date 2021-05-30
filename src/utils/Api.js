@@ -110,3 +110,4 @@ const api = new Api({
     'content-type': 'application/json'
   }});
 export default api;
+export default Api;

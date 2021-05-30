@@ -11,8 +11,8 @@ function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
   const [isEditProfilePopupOpen, setIsEditProfileOpen] = useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
-  const [selectedCard, setSelectedCard] = React.useState(null)
-  let loadButtonText = 'Сохранить'
+  const [selectedCard, setSelectedCard] = React.useState(null);
+  const loadButtonText = 'Сохранить';
   
 
   function handleCardClick(card) {

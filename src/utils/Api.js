@@ -1,4 +1,4 @@
-export class Api {
+class Api {
   constructor(config){
     this._url = config.url;
     this._headers = config.headers;
@@ -109,5 +109,4 @@ const api = new Api({
     authorization: '64388478-85d7-41e7-ab69-a698cc4b7b2e',
     'content-type': 'application/json'
   }});
-export default api;
-export default Api;
+export { api, Api }

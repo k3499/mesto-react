@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Card from '../components/Card';
-import api from '../utils/api';
+import {api, Api} from '../utils/api';
 
 function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick}) {
 

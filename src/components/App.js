@@ -4,7 +4,7 @@ import Main from './Main';
 import Footer from './Footer';
 import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
-import api from '../utils/api';
+import {api, Api} from '../utils/api';
 
 function App() {
   

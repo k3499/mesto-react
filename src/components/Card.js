@@ -6,6 +6,7 @@ function Card({ card, onCardClick }) {
     onCardClick(card);
   }
   return (
+    
         <article className="element">
         <button className="element__delete" type="button"></button>
         <div className="element__image" onClick={handleClick} style={{ backgroundImage: `url(${card.link})` }} ></div>

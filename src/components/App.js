@@ -13,8 +13,8 @@ function App() {
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [selectedCard, setSelectedCard] = React.useState(null);
   const loadButtonText = 'Сохранить';
-  
 
+  
   function handleCardClick(card) {
     setSelectedCard(card)
   }

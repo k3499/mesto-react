@@ -15,6 +15,7 @@ function App() {
   const loadButtonText = 'Сохранить';
 
   
+
   function handleCardClick(card) {
     setSelectedCard(card)
   }

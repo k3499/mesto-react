@@ -31,13 +31,13 @@ class Api {
      })
   }
     //отправка новой информации о пользователе
-  setUserInfo(inputData){
+  setUserInfo(userData){
     return fetch(`${this._url}users/me`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
-        name: inputData.name,
-        about: inputData.job
+        name: userData.name,
+        about: userData.about
       })
     })
     .then((res) => {
@@ -50,34 +50,36 @@ class Api {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
-        name: inputData.cardname,
-        link: inputData.cardlink
+        name: inputData.name,
+        link: inputData.link
       })
     })
     .then((res) => {
       return this._resOk(res);
     })
   }
-    //добавление лайков
-  like(cardId){
+    //смена статуса лайка
+
+//смена статуса лайка
+changeLikeCardStatus(cardId, isLiked) {
+  if (isLiked) {
     return fetch(`${this._url}cards/likes/${cardId}`, {
       method: 'PUT',
-      headers: this._headers
-    })
-    .then((res) => {
+      headers: this._headers,
+    }).then((res) => {
       return this._resOk(res);
      })
-  }
-    //снятие лайка
-  removeLike(cardId){
+  } else {
     return fetch(`${this._url}cards/likes/${cardId}`, {
       method: 'DELETE',
-      headers: this._headers
-    })
-    .then((res) => {
+      headers: this._headers,
+    }).then((res) => {
       return this._resOk(res);
      })
+    }
   }
+
+    
     //Удаление карточки с сервера
   removeCard(cardId){
     return fetch(`${this._url}cards/${cardId}`, {
@@ -94,7 +96,7 @@ class Api {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
-        avatar: inputData
+        avatar: inputData.avatar,
       })
     })
     .then((res) => {

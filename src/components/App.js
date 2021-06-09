@@ -38,7 +38,8 @@ function App() {
   function handleUpdateAvatar(userData){
     api.avatarUpl(userData)
         .then(res => {
-          setCurrentUser(res)
+          setCurrentUser(res);
+          setIsEditAvatarPopupOpen(false);
         })
         .catch((err) => console.log(err))
   }
@@ -55,11 +56,11 @@ function App() {
         
       })
       .catch((err) => console.log(err))
-}
+  }
   function handleCardDelete(card){
     api.removeCard(card._id)
     .then(() => {
-        setCards(cards.filter((c) => card._id !== c._id))
+        setCards(cards.filter((c) => card._id !== c._id));
     })
     .catch((err) => console.log(err))
   }
@@ -67,7 +68,8 @@ function App() {
   function handleAddPlaceSubmit(inputData) {
     api.addCard(inputData)
         .then(res => {
-            setCards([res, ...cards])
+            setCards([res, ...cards]);
+            setIsAddPlacePopupOpen(false);
         })
         .catch((err) => console.log(err))
   }

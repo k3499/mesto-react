@@ -16,13 +16,12 @@ function AddPlacePopup({isOpen, onClose, onAddPlace, loadButtonText}) {
   function handleSubmit(e) {
     e.preventDefault();
     onAddPlace({name, link});
-    onClose();
   }
   return ( 
-    <PopupWithForm isOpen={isOpen && 'popup_opened'} onClose={onClose} onSubmit={handleSubmit} name="card" title="Новое место" buttonText={loadButtonText}>
-            <input className="popup__input popup__input_type_name" onChange={handleName} type="text" id="cardName"  name="cardname" placeholder="Название" required minLength="2" maxLength="30"/>
+    <PopupWithForm isOpen={isOpen} onClose={onClose} onSubmit={handleSubmit} name="card" title="Новое место" buttonText={loadButtonText}>
+            <input className="popup__input popup__input_type_name" value={name || ''} onChange={handleName} type="text" id="cardName"  name="cardname" placeholder="Название" required minLength="2" maxLength="30"/>
             <span id="cardName-error" className="popup__error"></span>
-            <input className="popup__input popup__input_type_job" onChange={handleLink} type="url" id="cardLink"  name="cardlink" placeholder="Ссылка на картинку" required/>
+            <input className="popup__input popup__input_type_job" value={link || ''} onChange={handleLink} type="url" id="cardLink"  name="cardlink" placeholder="Ссылка на картинку" required/>
             <span id="cardLink-error" className="popup__error"></span>
     </PopupWithForm>
   );

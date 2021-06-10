@@ -31,7 +31,8 @@ function App() {
   function handleUpdateUser(userData){
     api.setUserInfo(userData)
         .then(res => {
-          setCurrentUser(res)
+          setCurrentUser(res);
+          setIsEditProfileOpen(false);
         })
         .catch((err) => console.log(err))
   }
